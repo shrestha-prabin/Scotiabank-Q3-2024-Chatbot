@@ -3,21 +3,7 @@ import pickle
 import pandas as pd
 from flask import Flask, render_template, request, jsonify
 import time
-
-class ChatbotModel:
-
-    def __init__(self):
-        # self.load_model()
-        pass
-
-    def load_model(self):
-        with open("app/models/best.pkl", "rb") as f:
-            self.model = pickle.load(f)
-
-    def get_response(self, query):
-        time.sleep(1)
-        return "Officia irure culpa duis reprehenderit Lorem esse officia ipsum et consectetur officia. Duis Lorem veniam excepteur anim laborum laboris dolor ullamco adipisicing mollit laborum deserunt. Enim exercitation aliqua deserunt adipisicing nisi. Culpa cupidatat ad nostrud nisi aliqua. In dolore culpa cillum culpa adipisicing consectetur ullamco labore est mollit sit velit sunt." + query
-
+from app.chatbot import ChatbotModel
 
 
 def create_app(test_config=None):
@@ -35,7 +21,7 @@ def create_app(test_config=None):
     def message():
         query = request.json.get('query')
         print(query)
-        response = model.get_response(query)
+        response = model.predict(query)
         return jsonify(response)
 
     return app

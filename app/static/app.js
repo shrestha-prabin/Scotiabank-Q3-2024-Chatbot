@@ -36,6 +36,12 @@ async function handleSubmit(value) {
   }
 }
 
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    handleSubmit()
+  }
+});
+
 function init() {
   const defaultData = DB.getAll()
 
