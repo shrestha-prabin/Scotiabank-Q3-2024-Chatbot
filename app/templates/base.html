@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<title>Scotiabank</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          background: "#f5f6fc",
+          primary: {
+            100: "#fbcdd3",
+            200: "#f89ca7",
+            300: "#f46a7a",
+            400: "#f1394e",
+            500: "#ed0722",
+            600: "#be061b",
+            700: "#8e0414",
+            800: "#5f030e",
+            900: "#2f0107",
+          },
+        },
+      },
+    },
+  };
+</script>
+
+<div class="bg-background">
+  <nav
+    class="border-b bg-white min-h-[5em] fixed top-0 w-full flex items-center"
+  >
+    <div class="container mx-auto">
+      <img
+        width="250"
+        src="https://www.scotiabank.com/content/dam/scotiabank/images/logos/2019/scotiabank-logo-red-desktop-200px.svg"
+      />
+    </div>
+  </nav>
+  <section>{% block content %}{% endblock %}</section>
+</div>
+<script src="{{url_for('static', filename='icons.js')}}"></script>
+<script src="{{url_for('static', filename='templates.js')}}"></script>
+<script src="{{url_for('static', filename='api.js')}}"></script>
+<script src="{{url_for('static', filename='storage.js')}}"></script>
+<script src="{{url_for('static', filename='app.js')}}"></script>

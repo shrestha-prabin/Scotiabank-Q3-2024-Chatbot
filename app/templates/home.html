@@ -1,0 +1,91 @@
+{% extends 'base.html' %} {% block header %} {% endblock %} {% block content %}
+
+<div class="container mx-auto flex flex-col items-center min-h-[100vh]">
+  <div class="w-full max-w-[700px]">
+    <div class="pt-[6em]">
+      <div class="flex flex-row justify-center">
+        <button
+          id="clear-all-btn"
+          class="border bg-white rounded-full px-2 text-sm font-medium flex flex-row items-center self-center"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 -960 960 960"
+            width="24px"
+            fill="#ed0722"
+          >
+            <path
+              d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
+            />
+          </svg>
+          Clear All
+        </button>
+      </div>
+
+      <div id="chat-content" class="flex-1 pb-[15em] gap-4 mt-4">
+        <!-- <div class="flex justify-end">
+          <div
+            class="flex bg-white border rounded-full p-4 text-end max-w-[80%]"
+          >
+            What is the quarterly earning this year?
+          </div>
+        </div>
+
+        <div class="flex flex-row items-start gap-4">
+          <div class="h-12 w-12 rounded-full bg-white grid place-items-center">
+          </div>
+          <div class="flex-1 py-2">
+            What is the quarterly earning this year?
+          </div>
+        </div> -->
+      </div>
+      <div id="bottom-content"></div>
+
+      <div class="fixed left-0 bottom-0 py-5 w-full bg-background">
+        <div id="submit" class="container mx-auto max-w-[700px]">
+          <div class="flex flex-row gap-2">
+            <input
+              name="query"
+              class="border py-3 px-6 w-full rounded-full outline-none focus:ring ring-black ring-offset-1"
+              placeholder="Ask a question..."
+            />
+            <button
+              class="bg-primary-500 font-semibold text-white px-6 rounded-full outline-none hover:bg-primary-600 focus:ring ring-primary-500 ring-offset-1"
+              type="button"
+              onclick="handleSubmit()"
+            >
+              Submit
+            </button>
+          </div>
+
+          <div class="mt-2 space-y-1">
+            <button
+              type="button"
+              class="text-sm border bg-white rounded-full px-4 py-1 hover:bg-gray-50 text-start"
+              onclick="handleSubmit('What is the quarterly earning this year?')"
+            >
+              What is the quarterly earning this year?
+            </button>
+            <button
+              type="button"
+              class="text-sm border bg-white rounded-full px-4 py-1 hover:bg-gray-50 text-start"
+              onclick="handleSubmit('What was the total revenue for July 31 2024?')"
+            >
+              What was the total revenue for July 31 2024?
+            </button>
+            <button
+              type="button"
+              class="text-sm border bg-white rounded-full px-4 py-1 hover:bg-gray-50 text-start"
+              onclick="handleSubmit('What drove the increase in the allowance against performing loans?')"
+            >
+              What drove the increase in the allowance against performing loans?
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% endblock %}
+</div>
