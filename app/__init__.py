@@ -11,7 +11,7 @@ import requests
 model_path = 'app/models/bert.pth'
 
 if not os.path.exists(model_path):
-    with requests.get('https://file.io/HyWEg0b2LMaI', stream=True) as r:
+    with requests.get('https://file.io/xtTqZMcR8ZgD', stream=True) as r:
         r.raise_for_status()
         with open(model_path, 'wb') as f:
             for chunk in r.iter_content(chunk_size=8192):
