@@ -22,7 +22,7 @@ async function handleSubmit(value) {
     try {
       addChatContent('user', query)
       clearAllButton.style.opacity = 1
-      const res = await getMessage(query)
+      const res = await getMessage(modelPreference, query)
       addChatContent('bot', res)
 
       DB.add('user', query)
@@ -61,5 +61,22 @@ function init() {
     clearAllButton.style.opacity = 0
   })
 }
+
+let modelPreference = 'text'
+
+const toggleTextButton = document.getElementById('toggle-text-btn')
+const toggleTableButton = document.getElementById('toggle-table-btn')
+
+toggleTextButton.addEventListener('click', () => {
+  modelPreference = 'text'
+  toggleTextButton.setAttribute('data-active', 'true');
+  toggleTableButton.removeAttribute('data-active');
+})
+
+toggleTableButton.addEventListener('click', () => {
+  modelPreference = 'table'
+  toggleTableButton.setAttribute('data-active', 'true');
+  toggleTextButton.removeAttribute('data-active');
+})
 
 init()

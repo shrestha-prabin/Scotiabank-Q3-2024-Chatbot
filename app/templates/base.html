@@ -2,6 +2,13 @@
 <title>Scotiabank</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
 <script src="https://cdn.tailwindcss.com"></script>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+  integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
 <script>
   tailwind.config = {
     theme: {
@@ -29,11 +36,29 @@
   <nav
     class="border-b bg-white min-h-[5em] fixed top-0 w-full flex items-center"
   >
-    <div class="container mx-auto">
+    <div class="container mx-auto flex justify-between items-center">
       <img
-        width="250"
+        width="220"
         src="https://www.scotiabank.com/content/dam/scotiabank/images/logos/2019/scotiabank-logo-red-desktop-200px.svg"
       />
+
+      <div>
+        <button
+          id="toggle-text-btn"
+          data-active="true"
+          class="border bg-gray-200 p-1 text-black rounded-full px-4 text-sm data-[active]:bg-black data-[active]:text-white"
+        >
+          <i class="fa-solid fa-font"></i>
+          Text
+        </button>
+        <button
+          id="toggle-table-btn"
+          class="border bg-gray-200 p-1 text-black rounded-full px-4 text-sm data-[active]:bg-black data-[active]:text-white"
+        >
+          <i class="fa-solid fa-table"></i>
+          Table
+        </button>
+      </div>
     </div>
   </nav>
   <section>{% block content %}{% endblock %}</section>

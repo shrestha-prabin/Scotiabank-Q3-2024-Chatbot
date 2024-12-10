@@ -7,7 +7,7 @@ const messageTemplates = {
     </div>
   `,
   bot: (text) => `
-    <div class="flex flex-row items-start gap-4">
+    <div class="flex flex-row items-start gap-4 mb-4">
       <div class="h-12 w-12 rounded-full bg-white grid place-items-center">
         ${scotiaLogo}
       </div>
