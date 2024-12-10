@@ -18,6 +18,8 @@ from transformers import (
     RobertaTokenizer,
 )
 
+# from .llamabot import llama_response
+
 
 class BERT_Arch(nn.Module):
     def __init__(self, bert, size):
@@ -59,7 +61,7 @@ class ChatbotModel:
         self.bert = AutoModel.from_pretrained("bert-base-uncased")
 
         self.load_data()
-        self.load_models()
+        # self.load_models()
 
     def load_data(self):
         self.para_df = pd.read_csv("app/data/paragraph_qa.csv")
@@ -90,6 +92,9 @@ class ChatbotModel:
             return self.predict_(self.table_model, self.table_df, text)
         elif source == "text":
             return self.predict_(self.para_model, self.para_df, text)
+        elif source == "llama":
+            return ""
+            # return llama_response(text)
 
     def predict_(self, model, df, text):
         try:
@@ -121,4 +126,4 @@ class ChatbotModel:
             return "Please try again later."
 
 
-ChatbotModel().predict("table", "What was the total revenue for July 31 2024?")
+# ChatbotModel().predict("table", "What was the total revenue for July 31 2024?")

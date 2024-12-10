@@ -66,17 +66,27 @@ let modelPreference = 'text'
 
 const toggleTextButton = document.getElementById('toggle-text-btn')
 const toggleTableButton = document.getElementById('toggle-table-btn')
+const toggleLlamaButton = document.getElementById('toggle-llama-btn')
 
 toggleTextButton.addEventListener('click', () => {
   modelPreference = 'text'
   toggleTextButton.setAttribute('data-active', 'true');
   toggleTableButton.removeAttribute('data-active');
+  toggleLlamaButton.removeAttribute('data-active');
 })
 
 toggleTableButton.addEventListener('click', () => {
   modelPreference = 'table'
   toggleTableButton.setAttribute('data-active', 'true');
   toggleTextButton.removeAttribute('data-active');
+  toggleLlamaButton.removeAttribute('data-active');
+})
+
+toggleLlamaButton.addEventListener('click', () => {
+  modelPreference = 'llama'
+  toggleLlamaButton.setAttribute('data-active', 'true');
+  toggleTextButton.removeAttribute('data-active');
+  toggleTableButton.removeAttribute('data-active');
 })
 
 init()
