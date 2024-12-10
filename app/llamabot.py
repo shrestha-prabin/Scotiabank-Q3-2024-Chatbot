@@ -11,10 +11,10 @@ from langchain_huggingface import HuggingFaceEmbeddings
 load_dotenv()
 
 PINECONE_API_KEY = os.environ.get("PINECONE_API_KEY")
-PINECONE_API_KEY = os.environ.get("PINECONE_API_KEY")
+PINECONE_API_ENV = os.environ.get("PINECONE_API_ENV")
 
 
-LLAMA_MODEL_PATH = "./models/llama-2-7b-chat.ggmlv3.q4_0.bin"
+LLAMA_MODEL_PATH = "app/models/llama-2-7b-chat.ggmlv3.q4_0.bin"
 
 prompt_template = """
 Use the following pieces of information to answer the user's question about Scotiabank's Q3 financial report. 
@@ -31,7 +31,7 @@ Helpful answer:
 embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
 
 # Initializing the Pinecone
-pc = pinecone.Pinecone(api_key=PINECONE_API_KEY, environment=PINECONE_API_ENV)
+pc = pinecone.Pinecone(api_key=PINECONE_API_KEY, environment=PINECONE_API_KEY)
 
 index_name = "scotia"
 
@@ -63,3 +63,6 @@ qa = RetrievalQA.from_chain_type(
 def llama_response(query: str):
     result = qa.invoke({"query": query})
     return result
+
+
+llama_response("test")

@@ -18,7 +18,7 @@ from transformers import (
     RobertaTokenizer,
 )
 
-# from .llamabot import llama_response
+from .llamabot import llama_response
 
 
 class BERT_Arch(nn.Module):
@@ -61,7 +61,7 @@ class ChatbotModel:
         self.bert = AutoModel.from_pretrained("bert-base-uncased")
 
         self.load_data()
-        # self.load_models()
+        self.load_models()
 
     def load_data(self):
         self.para_df = pd.read_csv("app/data/paragraph_qa.csv")
